@@ -7,7 +7,9 @@ import { bugs, fish } from './data';
   styleUrls: ['./critter.component.css']
 })
 export class CritterComponent implements OnInit {
-
+  bugs = bugs;
+  fish = fish;
+  
   constructor() { }
 
   ngOnInit() {
