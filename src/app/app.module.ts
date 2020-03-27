@@ -1,13 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
+import { CritterComponent } from './critter/critter.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent ],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: '', component: CritterComponent },
+    ])
+  ],
+  declarations: [ 
+    AppComponent, 
+    CritterComponent 
+  ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
