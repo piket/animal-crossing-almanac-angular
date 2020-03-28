@@ -1,0 +1,7 @@
+.critter-table tbody tr:nth-child(odd) {
+  background-color: #cfd8dc
+}
+
+.critter-table tr:nth-child(even) {
+  background-color: #eceff1
+}

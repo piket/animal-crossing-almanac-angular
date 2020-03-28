@@ -1,22 +1,26 @@
-<div>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Image</th>
-        <th>Price</th>
-        <th>Location</th>
-        <th>Shadow</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let critter of fish">
-        <td>{{ critter.name }}</td>
-        <td><img src="critter.image" width="64px" height="64px"></td>
-        <td>{{ critter.price }}</td>
-        <td>{{ critter.location }}</td>
-        <td>{{ critter.shadow }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <table class="critter-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Location</th>
+            <th *ngIf="critters[0].shadow">Shadow</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let critter of critters">
+            <td>{{ critter.name }}</td>
+            <td><img src="critter.image" width="64px" height="64px"></td>
+            <td>{{ critter.price }}</td>
+            <td>{{ critter.location }}</td>
+            <td *ngIf="critter.shadow">{{ critter.shadow }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

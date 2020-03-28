@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { CritterComponent } from './critter/critter.component';
+import { SelectorComponent } from './selector/selector.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { CritterComponent } from './critter/critter.component';
   ],
   declarations: [ 
     AppComponent, 
-    CritterComponent 
+    CritterComponent, SelectorComponent 
   ],
   bootstrap:    [ AppComponent ]
 })

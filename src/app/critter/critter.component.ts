@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Input } from '@angular/core';
 import { bugs, fish } from './data';
 
 @Component({
@@ -10,6 +11,7 @@ export class CritterComponent implements OnInit {
   bugs = bugs;
   fish = fish;
   
+  @Input() critters;
   constructor() { }
 
   ngOnInit() {

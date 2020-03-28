@@ -1,0 +1,26 @@
+<nav>
+  <div class="nav-wrapper brown">
+    <a href="#" class="brand-logo center">Animal Crossing Almanac</a>
+  </div>
+</nav>
+
+<div class="row">
+  <form [formGroup]="selectionForm" (ngSubmit)="onSubmit()">
+    <div class="input-field col s3">
+      <select name="hemisphere" formControlName="hemisphere">
+        <option *ngFor="let hemisphere of hemispheres" value="hemisphere.value">{{ hemisphere.name }}</option>
+      </select>
+      <label for="hemisphere">Hemisphere</label>
+    </div>
+    <div class="input-field col s3">
+      <select name="critter" formControlName="critter">
+        <option *ngFor="let critter of critters" value="critter.value">{{ critter.name }}</option>
+      </select>
+      <label for="critter">Critters</label>
+    </div>
+    <div class="col s3"><p>Current Date & Time: <span id="date-display">{{ datetime }}</span></div>
+    <div class="col s3">
+      <button class="btn-small waves-effect waves-light yellow darken-3" style="margin-top: 4px;" type="submit" name="action">Refresh</button
+      ></div>
+  </form>
+</div>
