@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
+import * as _moment from 'moment';
+// tslint:disable-next-line:no-duplicate-imports
+import {default as _rollupMoment} from 'moment';
+
+const moment = _rollupMoment || _moment;
+
 @Component({
   selector: 'app-selector',
   templateUrl: './selector.component.html',
@@ -23,7 +29,7 @@ export class SelectorComponent {
     ) {
       this.selectionForm = this.formBuilder.group({
         hemisphere: this.hemispheres,
-        datetime: this.datetime.toLocaleString(navigator.language),
+        date: moment(),
         critter: this.critters
       });
     }

@@ -1,26 +1,36 @@
-<div class="container">
-  <div class="row">
-    <div class="col s12">
-      <table class="critter-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Image</th>
-            <th>Price</th>
-            <th>Location</th>
-            <th *ngIf="critters[0].shadow">Shadow</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let critter of critters">
-            <td>{{ critter.name }}</td>
-            <td><img src="critter.image" width="64px" height="64px"></td>
-            <td>{{ critter.price }}</td>
-            <td>{{ critter.location }}</td>
-            <td *ngIf="critter.shadow">{{ critter.shadow }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<div class="row">
+  <div class="col s12">
+    <table mat-table class="critter-table mat-elevation-z8" [dataSource]="critter_data">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let critter">{{ critter.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef>Image</th>
+        <td mat-cell *matCellDef="let critter"><img src="critter.image" width="64px" height="64px"></td>
+      </ng-container>
+      
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let critter">
+          <span value="critter.price" *ngIf="critter.price >= 0">{{ critter.price }}</span>
+          <span value="critter.price" *ngIf="critter.price < 0">???</span>
+        </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="location">
+        <th mat-header-cell *matHeaderCellDef>Location</th>
+        <td mat-cell *matCellDef="let critter">{{ critter.location }}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="shadow" *ngIf="headers.includes('shadow')">
+        <th mat-header-cell *matHeaderCellDef>Shadow</th>
+        <td mat-cell *matCellDef="let critter">{{ critter.shadow }}</td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="headers"></tr>
+      <tr mat-row *matRowDef="let row; columns: headers;"></tr>
+    </table>
   </div>
 </div>

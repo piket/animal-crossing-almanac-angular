@@ -5,20 +5,26 @@
 </nav>
 
 <div class="row">
-  <form [formGroup]="selectionForm" (ngSubmit)="onSubmit()">
+  <form mat-form-field [formGroup]="selectionForm" (ngSubmit)="onSubmit()">
     <div class="input-field col s3">
-      <select name="hemisphere" formControlName="hemisphere">
-        <option *ngFor="let hemisphere of hemispheres" value="hemisphere.value">{{ hemisphere.name }}</option>
-      </select>
+      <mat-select name="hemisphere" formControlName="hemisphere">
+        <mat-option *ngFor="let hemisphere of hemispheres" value="hemisphere.value">{{ hemisphere.name }}</mat-option>
+      </mat-select>
       <label for="hemisphere">Hemisphere</label>
     </div>
     <div class="input-field col s3">
-      <select name="critter" formControlName="critter">
-        <option *ngFor="let critter of critters" value="critter.value">{{ critter.name }}</option>
-      </select>
+      <mat-select name="critter" formControlName="critter">
+        <mat-option *ngFor="let critter of critters" value="critter.value">{{ critter.name }}</mat-option>
+      </mat-select>
       <label for="critter">Critters</label>
     </div>
-    <div class="col s3"><p>Current Date & Time: <span id="date-display">{{ datetime }}</span></div>
+    <div class="col s3">
+      <!-- <p>Current Date & Time: <span id="date-display">{{ datetime }}</span> -->
+      <!-- <input matInput [matDatepicker]="picker" formControlName="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker> -->
+      <datetime-picker [(ngModel)]="dateModel" name="datetime"></datetime-picker>
+    </div>
     <div class="col s3">
       <button class="btn-small waves-effect waves-light yellow darken-3" style="margin-top: 4px;" type="submit" name="action">Refresh</button
       ></div>

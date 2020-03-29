@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
-import { bugs, fish } from './data';
+import { BUG_LIST, FISH_LIST } from './critter';
 
 @Component({
   selector: 'app-critter',
@@ -8,11 +8,14 @@ import { bugs, fish } from './data';
   styleUrls: ['./critter.component.css']
 })
 export class CritterComponent implements OnInit {
-  bugs = bugs;
-  fish = fish;
+  critter_data;
+  headers;
   
-  @Input() critters;
-  constructor() { }
+  // @Input() critters;
+  constructor() {
+    this.critter_data = FISH_LIST;
+    this.headers = ['name', 'image', 'price', 'location', 'shadow'];
+   }
 
   ngOnInit() {
   }
