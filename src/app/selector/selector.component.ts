@@ -30,6 +30,7 @@ export class SelectorComponent {
       this.selectionForm = this.formBuilder.group({
         hemisphere: this.hemispheres,
         date: moment(),
+        time: moment(),
         critter: this.critters
       });
     }
